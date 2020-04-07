@@ -14,12 +14,9 @@ if [ ${#} -ne 1 ]; then
 else 
   DEPLOYMENTDIR="${1}"
 fi
-echo -n "Clonando repositorio [${GITURL}]... "
-./clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR}
-echo "clonado"
+echo "Clonando repositorio [${GITURL}]... "
+./clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR} 
 echo "Creando canal [${TSCHANNELNAME}]... "
-echo "creado"
 ./crearCanalTS.sh ${USERAPIKEYTS} ${TSCHANNELNAME} ${DEPLOYMENTDIR}
 echo "Programando el script [${DEPLOYMENTDIR}/subirDatos.sh]... "
 ./programarCron.sh ${DEPLOYMENTDIR} subirDatos.sh
-echo "programado"
