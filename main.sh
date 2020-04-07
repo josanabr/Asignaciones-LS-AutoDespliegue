@@ -8,14 +8,12 @@
 # AUTHOR: John Sanabria - john.sanabria@correounivalle.edu.co
 # DATE: 2020-04-07
 #
-if [ ${#} -ne 1 ]; then
-  echo "Indique el directorio donde se instalara los scripts"
-  exit 1
-fi
-CWD=$(pwd)
-DEPLOYMENTDIR="${1}"
 . config.cfg
-./clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR}/${GITDIR}
-./crearCanalTS.sh ${USERAPIKEYTS} ${TSCHANNELNAME} ${DEPLOYMENTDIR}/${GITDIR}
-./programarCron.sh "${DEPLOYMENTDIR}/${GITDIR}" subirDatos.sh
-cd ${CWD}
+if [ ${#} -ne 1 ]; then
+  DEPLOYMENTDIR="${GITDIR}"
+else 
+  DEPLOYMENTDIR="${1}"
+fi
+./clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR}
+./crearCanalTS.sh ${USERAPIKEYTS} ${TSCHANNELNAME} ${DEPLOYMENTDIR}
+./programarCron.sh ${DEPLOYMENTDIR} subirDatos.sh
