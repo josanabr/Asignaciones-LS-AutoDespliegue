@@ -18,5 +18,5 @@ else
 fi
 TEMPFILE=$(mktemp)
 crontab -l > ${TEMPFILE}
-<SU_COMANDO_AQUI>
+<SU_CAMBIO_AQUI>
 crontab -u vagrant ${TEMPFILE}

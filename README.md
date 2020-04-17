@@ -28,6 +28,8 @@ A continuación se da una lista de las modificaciones que usted deberá hacer a 
 
 * `scriptdir/crearCanalTS.sh` en este archivo usted debe modificar la línea 51 en la cual se pone en un archivo llamado `${DEPLOYMENTDIR}/config.cfg` la línea `TSWRITEKEY=<SU_CAMBIO_AQUI>`. La modificación que usted debe hacer es que debe reemplazar `<SU_CAMBIO_AQUI>` por la instrucción en Bash que le permite obtener el valor de una variable de Bash. La variable se llama `TSWRITEKEY` y fue inicializada en la línea 46 de este script. 
 
-* `scriptdir/programarCron.sh` en este archivo usted debe modificar la línea 21. En esta línea usted debe escribir la sentencia de Bash que permite **adicionar** la cadena `* * * * * ${PATHNAME}` al archivo cuyo nombre se encuentra en la variable `TEMPFILE`. **IMPORTANTE** `TEMPFILE` es una variable y tiene el nombre del archivo. Recuerde que si quiere acceder al valor de una variable debe usar `${}`
+* `scriptdir/programarCron.sh` en este archivo usted debe modificar la línea 21. En esta línea usted debe escribir la sentencia de Bash que permite **adicionar** la cadena `* * * * * ${PATHNAME}` al archivo cuyo nombre se encuentra en la variable `TEMPFILE`. **IMPORTANTE** `TEMPFILE` es una variable y tiene como valor el nombre del archivo. Recuerde que si quiere acceder al valor de una variable debe usar `${}`
 
 ## Ejecutar script `main.sh`
+
+Una vez se hallan realizado los cambios anteriores 
