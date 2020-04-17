@@ -32,4 +32,5 @@ A continuación se da una lista de las modificaciones que usted deberá hacer a 
 
 ## Ejecutar script `main.sh`
 
-Una vez se hallan realizado los cambios anteriores 
+Una vez se hallan realizado los cambios anteriores puede ejecutar el script `./main.sh`. 
+Lo que debería pasar es que su servidor empezará a registrar los datos que usted programó en su repositorio para el monitoreo de un servidor. 
