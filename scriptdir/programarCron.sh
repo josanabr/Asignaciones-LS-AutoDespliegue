@@ -18,5 +18,5 @@ else
 fi
 TEMPFILE=$(mktemp)
 crontab -l > ${TEMPFILE}
-echo "* * * * * ${PATHNAME}" >> ${TEMPFILE}
+<SU_COMANDO_AQUI>
 crontab -u vagrant ${TEMPFILE}

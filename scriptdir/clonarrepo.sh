@@ -20,5 +20,7 @@ else # pasaron dos argumentos al script
   GITURL="${1}"
   GITDIR="${2}"
 fi
-git clone "${GITURL}" ${GITDIR}
+# Escriba aqui el comando de 'git' que permita clonar un repositorio. 
+# Ese comando recibiria dos argumentos los cuales son: ${GITURL} y ${GITDIR}.
+<SU_CAMBIO_AQUI>
 echo $?

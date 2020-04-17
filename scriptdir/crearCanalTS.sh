@@ -48,4 +48,4 @@ TSWRITEKEY=$(jq '.api_keys[0].api_key' ${TEMPFILE})
 # Se guarda dicha llave en el archivo de configuracion que leera el script
 # que subira los datos ThingSpeak.
 #
-echo "TSWRITEKEY=${TSWRITEKEY}" > ${DEPLOYMENTDIR}/config.cfg
+echo "TSWRITEKEY=<SU_CAMBIO_AQUI>" > ${DEPLOYMENTDIR}/config.cfg
