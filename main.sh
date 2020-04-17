@@ -9,14 +9,29 @@
 # DATE: 2020-04-07
 #
 . config.cfg
+BASEPATH=$(dirname "$(realpath ${0})")
+CWD=$(pwd)
 if [ ${#} -ne 1 ]; then
   DEPLOYMENTDIR="${GITDIR}"
 else 
   DEPLOYMENTDIR="${1}"
 fi
+if [ ! -f ${BASEPATH}/${SCRIPTDIR}/config.cfg ]; then
+  cp ${BASEPATH}/config.cfg ${BASEPATH}/${SCRIPTDIR}
+  if [ $? -ne 0 ]; then
+    echo "Problemas al copiar el archivo 'config.cfg'"
+    exit 1
+  fi
+else
+  diff ${BASEPATH}/config.cfg ${BASEPATH}/${SCRIPTDIR}/config.cfg > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Hay diferencias entre los archivo config.cfg y ${BASEPATH}/${SCRIPTDIR}/config.cfg"
+    exit 1
+  fi
+fi
 echo "Clonando repositorio [${GITURL}]... "
-./clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR} 
+${BASEPATH}/${SCRIPTDIR}/clonarrepo.sh ${GITURL} ${DEPLOYMENTDIR} 
 echo "Creando canal [${TSCHANNELNAME}]... "
-./crearCanalTS.sh ${USERAPIKEYTS} ${TSCHANNELNAME} ${DEPLOYMENTDIR}
+${BASEPATH}/${SCRIPTDIR}/crearCanalTS.sh ${USERAPIKEYTS} ${TSCHANNELNAME} ${DEPLOYMENTDIR}
 echo "Programando el script [${DEPLOYMENTDIR}/subirDatos.sh]... "
-./programarCron.sh ${DEPLOYMENTDIR} subirDatos.sh
+${BASEPATH}/${SCRIPTDIR}/programarCron.sh ${DEPLOYMENTDIR} subirDatos.sh
